@@ -25,15 +25,27 @@ class RegistroController extends Controller
     }
 
  
-	public function create(Request $request){
+    public function create(Request $request){
 
 
-       $res = Registros::create($request->all());
+    	$validator = \Validator::make($request->all(), [
+    		'cedula' => 'required|unique:registros'
+    		
+    	]);
+    	if($validator->fails()) {
+    		Toastr::error('Error Registrando.', 'Estudiante ya esta Registrado!', ['progressBar' => true]);
+    		return redirect()->action('RegistroController@createView', ['errors' => $validator->errors()]);
+    	} else {
+    		$res = Registros::create($request->all());
 
-        Toastr::success('Registrado Exitosamente.', '!', ['progressBar' => true]);
+ 
+    	//]);
+       }
 
-		return redirect()->action('RegistroController@index', ["created" => true, "res" => Registros::all()]);
-	}  
+
+     Toastr::success('Registro Exitoso.', 'Estudiante!', ['progressBar' => true]);
+     return redirect()->action('RegistroController@index', ["created" => true, "res" => Registros::all()]);
+}  
 
     public function editView($id){
       $p = Centros::find($id);
