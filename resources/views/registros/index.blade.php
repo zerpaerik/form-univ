@@ -50,6 +50,7 @@
 						<td>{{$p->email}}</td>
 						<td>{{$p->carrera}}</td>
 						<td>
+						<a href="registros-edit-{{$p->id}}" class="btn btn-primary">Editar</a>
 						<a href="registros-delete-{{$p->id}}" class="btn btn-danger"  onclick="return confirm('¿Desea Eliminar este registro?')">Eliminar</a>
 
 						</td>

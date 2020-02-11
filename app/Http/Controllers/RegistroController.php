@@ -48,25 +48,25 @@ class RegistroController extends Controller
 }  
 
     public function editView($id){
-      $p = Centros::find($id);
-      return view('archivos.centros.edit', ["name" => $p->name, "direccion" => $p->direccion, "referencia" => $p->referencia, "id" => $p->id,]);
+      $p = Registros::where('id','=',$id)->first();
+      return view('registros.edit',compact('p'));
       
     }   
 
       public function edit(Request $request){
-      $p = Centros::find($request->id);
-      $p->name = $request->name;
-      $p->direccion = $request->direccion;
-      $p->referencia = $request->referencia;
-      $res = $p->save();
-      return redirect()->action('Archivos\CentrosController@index', ["edited" => $res]);
+
+          $r = Registros::find($request->id);
+          $r->update($request->all());
+
+         Toastr::success('Modificado Exitosamente.', 'Estudiante!', ['progressBar' => true]);
+      return redirect()->action('RegistroController@index', ["edited" => $r]);
     }
 
   public function delete($id){
-    $centros = Centros::find($id);
-    $centros->estatus = 0;
-    $centros->save();
-    return redirect()->action('Archivos\CentrosController@index', ["deleted" => true, "users" => Centros::all()]);
+    $r = Registros::find($id);
+    $r->delete();
+
+    return redirect()->action('RegistroController@index', ["deleted" => true, "r" => Registros::all()]);
   }
 
   public function createView() {

@@ -8,7 +8,7 @@
 			<div class="box-header">
 				<div class="box-name">
 					<i class="fa fa-users"></i>
-					<span><strong>Agregar Informaciòn</strong></span>
+					<span><strong>Editar Informaciòn</strong></span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link">
@@ -22,28 +22,29 @@
 			</div>
 			<div class="box-content">
 				<h4 class="page-header">DATOS PERSONALES</h4>
-				<form class="form-horizontal" role="form" method="post" action="registros/create">
+			<form class="form-horizontal" role="form" method="post" action="registros/edit">
+
 					{{ csrf_field() }}
 					<div class="form-group">
 						<label class="col-sm-1 control-label">Nombres</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="nombres" placeholder="Nombre" data-toggle="tooltip" data-placement="bottom" title="Nombres">
+							<input type="text" value="{{$p->nombres}}" class="form-control" name="nombres" placeholder="Nombre" data-toggle="tooltip" data-placement="bottom" title="Nombres">
 						</div>
 						<label class="col-sm-1 control-label">Apellidos</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="apellidos" placeholder="direccion" data-toggle="tooltip" data-placement="bottom" title="Apellidos">
+							<input type="text" value="{{$p->apellidos}}" class="form-control" name="apellidos" placeholder="Apellidos" data-toggle="tooltip" data-placement="bottom" title="Apellidos">
 						</div>
 						<label class="col-sm-1 control-label">Cedula</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="cedula" placeholder="Cèdula" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->cedula}}" class="form-control" name="cedula" placeholder="Cèdula" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 						<label class="col-sm-1 control-label">Nacimiento</label>
-						<div class="col-sm-2">
-							<input type="date" class="form-control" name="nac" placeholder="referencia" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+						<div class="col-sm-2">       
+							<input type="date" value="{{$p->nac}}" class="form-control" name="nac" placeholder="referencia" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 						<label class="col-sm-1 control-label">Hijos</label>
 						<div class="col-sm-2">
-							<input type="number" class="form-control" name="hijos" placeholder="Hijos" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="number" value="{{$p->hijos}}" class="form-control" name="hijos" placeholder="Hijos" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 						<label class="col-sm-1 control-label">Sexo</label>
 						<div class="col-sm-2">
@@ -54,11 +55,11 @@
 						</div>
 						<label class="col-sm-1 control-label">Telefono</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="telefono" placeholder="Telefono" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->telefono}}" class="form-control" name="telefono" placeholder="Telefono" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 						<label class="col-sm-1 control-label">Email</label>
 						<div class="col-sm-2">
-							<input type="email" class="form-control" name="email" placeholder="Email" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="email" value="{{$p->email}}" class="form-control" name="email" placeholder="Email" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 						<label class="col-sm-1 control-label">Carrera</label>
@@ -88,11 +89,11 @@
 					<div class="form-group">
 						<label class="col-sm-1 control-label">Talla</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="talla" placeholder="Talla" data-toggle="tooltip" data-placement="bottom" title="Nombres">
+							<input type="text" value="{{$p->talla}}" class="form-control" name="talla" placeholder="Talla" data-toggle="tooltip" data-placement="bottom" title="Nombres">
 						</div>
 						<label class="col-sm-1 control-label">Peso</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="peso" placeholder="Peso" data-toggle="tooltip" data-placement="bottom" title="Apellidos">
+							<input type="text" value="{{$p->peso}}" class="form-control" name="peso" placeholder="Peso" data-toggle="tooltip" data-placement="bottom" title="Apellidos">
 						</div>
 						<label class="col-sm-1 control-label">Hipertension</label>
 						<div class="col-sm-1">
@@ -124,7 +125,7 @@
 						</div>
 						<label class="col-sm-1 control-label">Otra</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="otra" placeholder="Otra" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->otra}}"  class="form-control" name="otra" placeholder="Otra" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 					</div>
 
@@ -150,7 +151,7 @@
 						
 						<label class="col-sm-1 control-label">Tiempo</label>
 						<div class="col-sm-2">
-							<input type="number" class="form-control" name="tiempo" placeholder="Tiempo" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="number" class="form-control" name="tiempo" value="{{$p->tiempo}}"  placeholder="Tiempo" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 					</div>
@@ -198,7 +199,7 @@
 
 						<label class="col-sm-1 control-label">Cual?</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="cual_esp" placeholder="Cual Familiar necesita atenciòn especial?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->cual_esp}}" class="form-control" name="cual_esp" placeholder="Cual Familiar necesita atenciòn especial?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 					</div>
@@ -314,18 +315,18 @@
 
 						<label class="col-sm-1 control-label">Cual?</label>
 						<div class="col-sm-2">
-							<input type="deport_prac" class="form-control" name="cual_esp" placeholder="Cual Practicas?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="deporte_prac" value="{{$p->deporte_prac}}" class="form-control" name="cual_esp" placeholder="Cual Practicas?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 
 						<label class="col-sm-1 control-label">Cual?</label>
 						<div class="col-sm-5">
-							<input type="deport_gusto" class="form-control" name="cual_esp" placeholder="Cual te Gustaria Practicar?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->deporte_gusto}}" class="form-control" name="deporte_gusto" placeholder="Cual te Gustaria Practicar?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 						<label class="col-sm-1 control-label">Cursos</label>
 						<div class="col-sm-5">
-							<input type="cursos" class="form-control" name="cual_esp" placeholder="Cual te Gustaria Realizar?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->cursos}}" class="form-control" name="cursos" placeholder="Cual te Gustaria Realizar?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 						
@@ -344,7 +345,7 @@
 						</div>
 						<label class="col-sm-1 control-label">Cual?</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="cual_benefic" placeholder="Cual Beneficio recibes?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" class="form-control" value="{{$p->cual_benefic}}" name="cual_benefic" placeholder="Cual Beneficio recibes?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 						
 						<label class="col-sm-1 control-label">Act.Economica</label>
@@ -356,7 +357,7 @@
 						</div>
 						<label class="col-sm-1 control-label">Cual?</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="act_econ_de" placeholder="Cual Actividad Economica?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" class="form-control" value="{{$p->act_econ_de}}"  name="act_econ_de" placeholder="Cual Actividad Economica?" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 						<label class="col-sm-1 control-label">Oficio</label>
 						<div class="col-sm-2">
@@ -390,7 +391,7 @@
 
 						<label class="col-sm-1 control-label">P/A</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="pregunta" placeholder="Pregunta Abierta" data-toggle="tooltip" data-placement="bottom" title="Referencia">
+							<input type="text" value="{{$p->pregunta}}" class="form-control" name="pregunta" placeholder="Pregunta Abierta" data-toggle="tooltip" data-placement="bottom" title="Referencia">
 						</div>
 
 						
@@ -398,12 +399,13 @@
 
 						
 						
+						<input type="hidden" name="id" value="{{$p->id}}">
 
 
 								
 
 						<br>
-						<input type="button" onclick="form.submit()" style="margin-left:15px; margin-top: 20px;" class="col-sm-2 btn btn-primary" value="Guardar">
+						<input type="button" onclick="form.submit()" style="margin-left:15px; margin-top: 20px;" class="col-sm-2 btn btn-primary" value="Actualizar">
 
 						<a href="{{route('registros.index')}}" style="margin-left:15px; margin-top: 20px;" class="col-sm-2 btn btn-danger">Volver</a>
 					</div>			
